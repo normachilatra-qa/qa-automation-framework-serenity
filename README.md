@@ -16,7 +16,7 @@ Framework de automatización de pruebas de extremo a extremo (E2E) diseñado baj
 * **BDD Framework:** Cucumber (Gherkin syntax)
 * **Patrón de Diseño:** Screenplay Pattern
 * **Gestor de Dependencias y Construcción:** Gradle
-* **Reporte:** Serenity Living Documentation / Allure Reports
+* **Reporte:** Serenity Living Documentation
 
 ---
 
@@ -46,3 +46,44 @@ src
     │               └── stepdefinitions# Definiciones de pasos de prueba
     └── resources
         └── features                   # Archivos .feature escritos en Gherkin
+```
+
+---
+
+## 📋 Requisitos Previos
+
+* **JDK:** Java Development Kit 17 o superior.
+* **IDE:** IntelliJ IDEA / Eclipse.
+* **Build Tool:** Gradle 8.x instalado o usando Gradle Wrapper (`gradlew`).
+* **Navegador:** Google Chrome / Firefox actualizado.
+
+---
+
+## ⚙️ Configuración y Ejecución
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/TU-USUARIO/qa-automation-framework-serenity.git
+   cd qa-automation-framework-serenity
+   ```
+
+2. **Ejecutar pruebas en entorno local:**
+   ```bash
+   ./gradlew clean test aggregate
+   ```
+
+3. **Ejecutar por etiquetas (Tags):**
+   ```bash
+   ./gradlew test -Dcucumber.filter.tags="@SmokeTest"
+   ```
+
+---
+
+## 📊 Reportes y Evidencias
+
+Serenity BDD genera automáticamente reportes interactivos completos tras cada ejecución.
+
+Para abrir el reporte en tu navegador local ejecuta:
+```bash
+open target/site/serenity/index.html
+```

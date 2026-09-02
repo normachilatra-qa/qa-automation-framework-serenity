@@ -1,0 +1,37 @@
+defaultTasks 'clean', 'test', 'aggregate'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:4.0.30")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'net.serenity-bdd'
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+dependencies {
+    testImplementation 'net.serenity-bdd:serenity-core:4.0.30'
+    testImplementation 'net.serenity-bdd:serenity-cucumber:4.0.30'
+    testImplementation 'net.serenity-bdd:serenity-screenplay:4.0.30'
+    testImplementation 'net.serenity-bdd:serenity-screenplay-webdriver:4.0.30'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.9'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
